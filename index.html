@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personality Psychology — Exam Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #1B1420;
+    --bg-raised: #221A28;
+    --bg-card: #2A1F31;
+    --line: rgba(217,166,46,0.16);
+    --line-soft: rgba(242,233,228,0.09);
+    --ink: #F2E9E4;
+    --ink-dim: #B7A9B7;
+    --ink-faint: #7C6D80;
+    --amber: #D9A62E;
+    --amber-dim: rgba(217,166,46,0.16);
+    --teal: #C97B93;
+    --teal-dim: rgba(201,123,147,0.16);
+    --rose: #8FA888;
+    --serif: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+    --sans: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+    --mono: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img, svg{ max-width:100%; }
+  ::selection{background:var(--amber-dim); color:var(--amber);}
+
+  .shell{ display:flex; min-height:100vh; }
+
+  .sidebar{
+    width:272px; max-width:82vw; flex-shrink:0;
+    position:sticky; top:0; height:100vh;
+    border-right:1px solid var(--line-soft);
+    background:var(--bg-raised);
+    display:flex; flex-direction:column;
+    padding:28px 0 20px;
+    overflow-y:auto;
+  }
+  .brand{ padding:0 24px 22px; border-bottom:1px solid var(--line-soft); margin-bottom:18px; }
+  .brand .tag{ font-family:var(--mono); font-size:10.5px; letter-spacing:0.08em; color:var(--teal); text-transform:uppercase; }
+  .brand h1{ font-family:var(--serif); font-weight:600; font-size:22px; margin-top:6px; color:var(--ink); line-height:1.15; }
+  .brand p{ font-size:12.5px; color:var(--ink-faint); margin-top:8px; }
+
+  nav.toc{ padding:0 14px; flex:1; }
+  .toc-group-label{ font-family:var(--mono); font-size:10px; letter-spacing:0.07em; color:var(--ink-faint); text-transform:uppercase; padding:14px 10px 6px; }
+  .toc a{ display:flex; align-items:baseline; gap:9px; color:var(--ink-dim); text-decoration:none; font-size:13.5px; padding:7px 10px; border-radius:7px; transition:background .15s, color .15s; }
+  .toc a .n{ font-family:var(--mono); font-size:10.5px; color:var(--ink-faint); }
+  .toc a:hover{ background:var(--bg-card); color:var(--ink); }
+  .toc a.active{ background:var(--amber-dim); color:var(--amber); }
+  .toc a.active .n{ color:var(--amber); }
+
+  .sidebar-foot{ padding:16px 24px 4px; border-top:1px solid var(--line-soft); margin-top:12px; }
+  .progress-label{ font-size:11px; color:var(--ink-faint); font-family:var(--mono); margin-bottom:8px; display:flex; justify-content:space-between;}
+  .progress-track{ height:4px; background:var(--bg-card); border-radius:3px; overflow:hidden; }
+  .progress-fill{ height:100%; width:0%; background:linear-gradient(90deg, var(--rose), var(--amber)); transition:width .2s; }
+
+  .menu-btn{ display:none; }
+
+  main{ flex:1; min-width:0; }
+  .section{ padding:76px 64px 30px; max-width:900px; border-bottom:1px solid var(--line-soft); }
+  .section:last-of-type{ border-bottom:none; }
+  .eyebrow{ font-family:var(--mono); font-size:11.5px; color:var(--teal); letter-spacing:0.04em; margin-bottom:14px; }
+  h2.stitle{ font-family:var(--serif); font-weight:600; font-size:38px; line-height:1.12; margin-bottom:8px; color:var(--ink); }
+  .stitle em{ font-style:italic; color:var(--amber); }
+  .lede{ font-size:16px; color:var(--ink-dim); max-width:640px; margin:14px 0 8px; }
+
+  h3.sub{ font-family:var(--serif); font-weight:600; font-size:21px; color:var(--ink); margin:34px 0 14px; }
+  h4.sub-sub{ font-family:var(--sans); font-weight:700; font-size:14.5px; color:var(--amber); margin:22px 0 10px; letter-spacing:0.01em; }
+  p{ font-size:15px; color:var(--ink-dim); max-width:680px; margin-bottom:12px; }
+  strong{ color:var(--ink); font-weight:600; }
+  ul.bullets{ margin:10px 0 18px; max-width:680px; }
+  ul.bullets li{ list-style:none; position:relative; padding-left:20px; font-size:14.5px; color:var(--ink-dim); margin-bottom:11px; }
+  ul.bullets li::before{ content:'—'; position:absolute; left:0; color:var(--teal); }
+  ul.bullets li strong{ color:var(--ink); }
+
+  .quote{ border-left:2px solid var(--amber); padding:4px 0 4px 20px; margin:20px 0; font-family:var(--serif); font-style:italic; font-size:16.5px; color:var(--ink); max-width:600px; }
+  .quote cite{ display:block; font-family:var(--mono); font-style:normal; font-size:11px; color:var(--ink-faint); margin-top:8px; }
+
+  .grid{ display:grid; gap:14px; margin:18px 0 8px; }
+  .grid-2{ grid-template-columns:1fr 1fr; }
+  .grid-3{ grid-template-columns:repeat(3,1fr); }
+  .card{ background:var(--bg-card); border:1px solid var(--line-soft); border-radius:10px; padding:20px; }
+  .card h5{ font-family:var(--serif); font-size:16px; font-weight:600; color:var(--ink); margin-bottom:8px; }
+  .card p{ font-size:13.5px; margin-bottom:0; }
+  .card .k{ font-family:var(--mono); font-size:10.5px; color:var(--teal); letter-spacing:.05em; margin-bottom:6px; display:block;}
+
+  .pill{ display:inline-block; font-family:var(--mono); font-size:10.5px; padding:3px 9px; border-radius:20px; border:1px solid var(--line); color:var(--amber); margin-right:6px; margin-bottom:6px; }
+
+  /* iceberg diagram */
+  .iceberg{ position:relative; max-width:420px; margin:24px auto; }
+  .iceberg-band{ border-radius:10px; padding:14px 18px; text-align:center; font-family:var(--serif); font-weight:600; margin-bottom:4px; }
+  .iceberg-band.sky{ background:linear-gradient(180deg, #E8DFE0, #C9C0CB); color:#221A28; font-size:14px; padding:20px 18px 8px; }
+  .iceberg-band.tip{ background:#D9C24A; color:#221A28; font-size:13px; padding:8px 18px; }
+  .iceberg-band.water1{ background:#3D6E8C; color:#F2E9E4; font-size:14px; padding:22px 18px; }
+  .iceberg-band.water2{ background:#22475F; color:#F2E9E4; font-size:14px; padding:40px 18px; border-radius:10px 10px 16px 16px; }
+  .iceberg-band .pct{ font-family:var(--mono); font-size:11px; opacity:.8; display:block; margin-top:4px; }
+
+  /* structure diagram (id ego superego) */
+  .psyche-row{ display:flex; gap:14px; margin:22px 0; flex-wrap:wrap; }
+  .psyche-card{ flex:1; min-width:180px; background:var(--bg-card); border:1px solid var(--line-soft); border-radius:12px; padding:22px; text-align:center; }
+  .psyche-card h5{ font-family:var(--serif); font-weight:700; font-size:24px; margin-bottom:6px; }
+  .psyche-card.id h5{ color:var(--teal); }
+  .psyche-card.ego h5{ color:var(--amber); }
+  .psyche-card.superego h5{ color:var(--rose); }
+  .psyche-card .principle{ font-family:var(--mono); font-size:10.5px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.05em; margin-bottom:12px; }
+  .psyche-card p{ font-size:13px; margin:0; max-width:none; }
+
+  /* timeline reused for psychosexual stages */
+  .timeline{ position:relative; margin:26px 0 10px; padding-left:26px; max-width:700px; }
+  .timeline::before{ content:''; position:absolute; left:5px; top:6px; bottom:6px; width:2px; background:linear-gradient(180deg, var(--teal), var(--amber), var(--rose)); }
+  .t-item{ position:relative; padding-bottom:26px; }
+  .t-item:last-child{ padding-bottom:0; }
+  .t-item::before{ content:''; position:absolute; left:-26px; top:4px; width:12px; height:12px; border-radius:50%; background:var(--bg); border:2px solid var(--amber); }
+  .t-year{ font-family:var(--mono); font-size:12px; color:var(--amber); margin-bottom:3px; }
+  .t-title{ font-family:var(--serif); font-weight:600; font-size:16.5px; color:var(--ink); margin-bottom:4px; }
+  .t-desc{ font-size:13.5px; color:var(--ink-dim); max-width:600px; }
+
+  /* comparison table style */
+  .table-scroll{ overflow-x:auto; -webkit-overflow-scrolling:touch; margin:18px 0; }
+  .table-scroll .cmp-table{ margin:0; min-width:480px; }
+  .cmp-table{ width:100%; border-collapse:collapse; font-size:13px; }
+  .cmp-table th{ font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--amber); text-align:left; padding:10px 12px; border-bottom:1px solid var(--line); }
+  .cmp-table td{ padding:11px 12px; border-bottom:1px solid var(--line-soft); color:var(--ink-dim); vertical-align:top; }
+  .cmp-table tr:last-child td{ border-bottom:none; }
+  .cmp-table td strong{ color:var(--ink); }
+
+  /* dichotomy cards */
+  .dichotomy{ background:var(--bg-card); border:1px solid var(--line-soft); border-radius:10px; padding:18px 20px; margin-bottom:12px; }
+  .dichotomy .dtitle{ font-family:var(--serif); font-weight:600; font-size:17px; color:var(--ink); margin-bottom:10px; }
+  .dichotomy .drow{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .dichotomy .dside{ font-size:13px; color:var(--ink-dim); }
+  .dichotomy .dside b{ display:block; color:var(--amber); font-size:12px; font-family:var(--mono); text-transform:uppercase; margin-bottom:4px; }
+  .dichotomy .dside.right b{ color:var(--teal); }
+
+  /* defense mechanism grid */
+  .defense-card{ background:var(--bg-card); border:1px solid var(--line-soft); border-radius:10px; padding:16px 18px; margin-bottom:10px; }
+  .defense-card h5{ font-family:var(--serif); font-weight:600; font-size:16px; color:var(--amber); margin-bottom:6px; }
+  .defense-card p{ font-size:13px; margin-bottom:0; }
+
+  .glossary{ margin:18px 0; }
+  .gterm{ padding:13px 0; border-bottom:1px solid var(--line-soft); display:flex; gap:20px; }
+  .gterm dt{ font-family:var(--serif); font-weight:600; font-size:14.5px; color:var(--amber); width:210px; flex-shrink:0; }
+  .gterm dd{ font-size:13.5px; color:var(--ink-dim); }
+
+  .flash-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:20px 0; }
+  .flash{ background:var(--bg-card); border:1px solid var(--line-soft); border-radius:10px; padding:18px; cursor:pointer; min-height:110px; position:relative; transition:border-color .15s; }
+  .flash:hover{ border-color:var(--amber); }
+  .flash .q{ font-size:13.5px; font-weight:600; color:var(--ink); }
+  .flash .a{ font-size:13px; color:var(--teal); margin-top:10px; display:none; line-height:1.55; }
+  .flash.open .a{ display:block; }
+  .flash.open .q{ color:var(--amber); }
+  .flash .hint{ font-family:var(--mono); font-size:9.5px; color:var(--ink-faint); position:absolute; top:16px; right:16px; }
+
+  .ref-item{ font-size:13px; color:var(--ink-dim); padding:9px 0; border-bottom:1px solid var(--line-soft); }
+  .ref-item:last-child{ border-bottom:none; }
+  .ref-item b{ color:var(--ink); }
+
+  footer{ padding:40px 64px 60px; color:var(--ink-faint); font-size:12px; font-family:var(--mono); }
+
+  .hero{ padding:64px 64px 40px; max-width:900px; }
+  .hero .eyebrow{ margin-bottom:20px; }
+  .hero h1{ font-family:var(--serif); font-weight:600; font-size:52px; line-height:1.06; color:var(--ink); margin-bottom:18px; }
+  .hero h1 em{ font-style:italic; color:var(--amber); }
+  .hero .sub{ font-size:16.5px; color:var(--ink-dim); max-width:600px; margin-bottom:26px; }
+  .hero-stats{ display:flex; gap:28px; flex-wrap:wrap; margin-top:8px; }
+  .hstat b{ font-family:var(--serif); font-size:26px; color:var(--amber); display:block; }
+  .hstat span{ font-family:var(--mono); font-size:10.5px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.04em; }
+
+  .part-divider{ padding:50px 64px 10px; max-width:900px; }
+  .part-divider .ptag{ font-family:var(--mono); font-size:12px; color:var(--rose); letter-spacing:.08em; text-transform:uppercase; }
+  .part-divider h2{ font-family:var(--serif); font-weight:600; font-size:44px; color:var(--ink); margin-top:6px; }
+  .part-divider h2 em{ font-style:italic; color:var(--amber); }
+  .part-divider p{ margin-top:10px; }
+
+  .overlay{ display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:40; }
+  .overlay.show{ display:block; }
+
+  @media (max-width:920px){
+    .shell{ display:block; }
+    .sidebar{ position:fixed; left:0; top:0; z-index:50; transform:translateX(-100%); transition:transform .2s; box-shadow:20px 0 40px rgba(0,0,0,.4);}
+    .sidebar.open{ transform:translateX(0); }
+    .menu-btn{ display:flex; position:fixed; top:14px; left:16px; z-index:60; width:44px; height:44px; border-radius:10px; background:var(--bg-card); border:1px solid var(--line); align-items:center; justify-content:center; color:var(--amber); cursor:pointer; font-size:18px; }
+    main{ width:100%; }
+    .section, .hero, .part-divider{ padding-left:24px; padding-right:24px; max-width:100%; }
+    .grid-2, .grid-3, .flash-grid{ grid-template-columns:1fr; }
+    .hero h1{ font-size:38px; }
+    h2.stitle, .part-divider h2{ font-size:30px; }
+    .gterm{ flex-direction:column; gap:4px; }
+    .gterm dt{ width:auto; }
+    .hero-stats{ gap:22px; }
+    .psyche-row{ flex-direction:column; }
+    .dichotomy .drow{ grid-template-columns:1fr; }
+    .cmp-table{ font-size:12px; }
+  }
+
+  @media (max-width:600px){
+    .section, .hero, .part-divider{ padding-top:72px; padding-bottom:26px; }
+    .hero h1{ font-size:30px; }
+    .hero .sub{ font-size:14.5px; }
+    h2.stitle, .part-divider h2{ font-size:24px; }
+    .lede{ font-size:14.5px; }
+    p, ul.bullets li{ font-size:13.5px; }
+    h3.sub{ font-size:18px; margin:26px 0 12px; }
+    h4.sub-sub{ font-size:13px; margin:18px 0 8px; }
+    .card{ padding:16px; }
+    .card h5{ font-size:15px; }
+    .quote{ font-size:15px; padding-left:16px; }
+    .timeline{ padding-left:22px; }
+    .t-item::before{ left:-22px; width:10px; height:10px; }
+    .t-title{ font-size:15px; }
+    .t-desc{ font-size:12.5px; }
+    .hero-stats{ gap:16px 24px; }
+    .hstat b{ font-size:21px; }
+    .flash{ padding:15px; min-height:96px; }
+    .flash .q{ font-size:12.5px; }
+    .flash .a{ font-size:12px; }
+    .brand h1{ font-size:19px; }
+    footer{ padding:34px 18px 50px; font-size:10.5px; }
+    .pill{ font-size:9.5px; padding:3px 8px; }
+    .psyche-card{ padding:16px; }
+    .psyche-card h5{ font-size:20px; }
+    .cmp-table th, .cmp-table td{ padding:8px; font-size:11.5px; }
+    .iceberg{ max-width:100%; }
+    .iceberg-band{ padding:12px 14px; font-size:12px; }
+    .iceberg-band.sky{ padding:16px 14px 6px; font-size:12.5px; }
+    .iceberg-band.water2{ padding:28px 14px; }
+    .dichotomy{ padding:14px 16px; }
+    .dichotomy .dtitle{ font-size:15px; }
+    .dichotomy .dside{ font-size:12.5px; }
+    .defense-card{ padding:14px 16px; }
+    .defense-card h5{ font-size:14.5px; }
+    .defense-card p{ font-size:12.5px; }
+    .part-divider p{ font-size:13.5px; }
+  }
+
+  @media (max-width:380px){
+    .sidebar{ width:100%; max-width:100%; }
+    .hero h1{ font-size:26px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="overlay" id="overlay"></div>
+<div class="menu-btn" id="menuBtn">☰</div>
+
+<div class="shell">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="tag">Exam Prep</div>
+      <h1>Personality Psychology</h1>
+      <p>Unit 1 + Classical Psychoanalysis, from your slides</p>
+    </div>
+    <nav class="toc">
+      <div class="toc-group-label">Part 1 · Foundations</div>
+      <a href="#what-is-personality"><span class="n">01</span> What Is Personality?</a>
+      <a href="#temp-trait-pers"><span class="n">02</span> Temperament, Trait, Personality</a>
+      <a href="#behavior"><span class="n">03</span> Personality in Behaviour</a>
+      <a href="#levels"><span class="n">04</span> Levels of Analysis</a>
+      <a href="#research-trends"><span class="n">05</span> Current Research Trends</a>
+      <a href="#hofstede"><span class="n">06</span> Hofstede's Cultural Dimensions</a>
+      <a href="#biological"><span class="n">07</span> Biological Influences</a>
+      <a href="#evolutionary"><span class="n">08</span> Evolutionary Influences</a>
+      <a href="#environmental"><span class="n">09</span> Environmental Factors</a>
+      <a href="#theory-basics"><span class="n">10</span> What Makes a Good Theory</a>
+      <a href="#assumptions"><span class="n">11</span> Assumptions About Human Nature</a>
+
+      <div class="toc-group-label">Part 2 · Freud</div>
+      <a href="#freud-life"><span class="n">12</span> Freud's Life &amp; Approach</a>
+      <a href="#mind"><span class="n">13</span> Concept of Mind</a>
+      <a href="#structure"><span class="n">14</span> Structural Model</a>
+      <a href="#instincts"><span class="n">15</span> Instincts</a>
+      <a href="#anxiety"><span class="n">16</span> Anxiety</a>
+      <a href="#defense"><span class="n">17</span> Defense Mechanisms</a>
+      <a href="#psychosexual"><span class="n">18</span> Psychosexual Stages</a>
+      <a href="#dreams"><span class="n">19</span> Dream Interpretation</a>
+      <a href="#evaluation"><span class="n">20</span> Evaluation</a>
+
+      <div class="toc-group-label">Revise</div>
+      <a href="#glossary"><span class="n">21</span> Glossary</a>
+      <a href="#flashcards"><span class="n">22</span> Self-Test Flashcards</a>
+      <a href="#references"><span class="n">23</span> References</a>
+    </nav>
+    <div class="sidebar-foot">
+      <div class="progress-label"><span>Read progress</span><span id="progressPct">0%</span></div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main>
+
+    <section class="hero" id="what-is-personality">
+      <div class="eyebrow">Unit 1 · Introduction to Personality Psychology</div>
+      <h1>What makes you, <em>you</em>?</h1>
+      <p class="sub">"Knowing yourself is the beginning of all wisdom" — Aristotle. Personality is the relatively enduring pattern of thoughts, feelings and behaviours that makes each person's psychological fingerprint unique. This page walks through both your Unit 1 slides and the Freud deck, end to end.</p>
+      <div class="hero-stats">
+        <div class="hstat"><b>3</b><span>Layers: temperament, trait, personality</span></div>
+        <div class="hstat"><b>8</b><span>Human nature dichotomies</span></div>
+        <div class="hstat"><b>6</b><span>Hofstede dimensions</span></div>
+        <div class="hstat"><b>3</b><span>Freud: Id / Ego / Superego</span></div>
+      </div>
+
+      <h3 class="sub">Defining Personality</h3>
+      <p>Allport alone gave around <strong>50 definitions</strong> of personality — the two most cited for exams:</p>
+      <div class="grid grid-2">
+        <div class="card">
+          <span class="k">LARSEN &amp; BUSS, 2005</span>
+          <p>"Personality is the set of psychological traits and mechanisms within the individual that are organized and relatively enduring and that influence his or her interactions with, and adaptations to, the intrapsychic, physical, and social environments."</p>
+        </div>
+        <div class="card">
+          <span class="k">SCHULTZ &amp; SCHULTZ, 2015</span>
+          <p>"Personality is an enduring and unique cluster of characteristics that may change in response to different situations."</p>
+        </div>
+      </div>
+      <ul class="bullets">
+        <li><strong>Personality is unique</strong> to the individual, yet <strong>relatively stable</strong> — it can still develop over time.</li>
+        <li>It shapes thoughts, emotions and behaviour, and understanding it improves communication, relationships, career success and self-awareness.</li>
+        <li>Academic definitions of personality differ sharply from popular/everyday definitions — exams often test this distinction.</li>
+      </ul>
+    </section>
+
+    <!-- 02 TEMPERAMENT TRAIT PERSONALITY -->
+    <section class="section" id="temp-trait-pers">
+      <div class="eyebrow">1.2</div>
+      <h2 class="stitle">Temperament, <em>Trait</em> &amp; Personality</h2>
+      <p class="lede">Psychologists treat these as distinct, layered concepts — visualised with the <strong>"House Analogy."</strong></p>
+      <div class="grid grid-3">
+        <div class="card">
+          <span class="k">TEMPERAMENT — THE FOUNDATION</span>
+          <h5>Soil you build on</h5>
+          <p>Biologically-based, innate, present from infancy. Basic tendencies: activity, regularity, initial reaction, adaptability, intensity, mood, distractibility, persistence-attention span, sensory threshold.</p>
+        </div>
+        <div class="card">
+          <span class="k">TRAIT — THE PILLARS</span>
+          <h5>Walls you build up</h5>
+          <p>A label for a combination of behaviours; moderately stable, specific and measurable (e.g. extraversion, neuroticism, sensation seeking, openness, conscientiousness); develops with age.</p>
+        </div>
+        <div class="card">
+          <span class="k">PERSONALITY — THE HOME</span>
+          <h5>Complete, furnished home</h5>
+          <p>The comprehensive set of characteristics and patterns of thoughts, emotions and behaviours — the paint, furniture, habits and daily life inside. Dynamic; evolves over time.</p>
+        </div>
+      </div>
+      <h4 class="sub-sub">The Big Five (OCEAN) — psychology's gold standard for traits</h4>
+      <div class="grid grid-2">
+        <div class="card"><h5>Openness</h5><p>Curious vs. cautious</p></div>
+        <div class="card"><h5>Conscientiousness</h5><p>Organized vs. easygoing</p></div>
+        <div class="card"><h5>Extraversion</h5><p>Outgoing vs. reserved</p></div>
+        <div class="card"><h5>Agreeableness</h5><p>Compassionate vs. competitive</p></div>
+      </div>
+      <p style="max-width:680px;"><strong>Neuroticism:</strong> sensitive/anxious vs. secure/confident. Someone who scores exceptionally high in Conscientiousness will consistently keep an immaculate calendar, arrive early, and feel deeply uncomfortable with disorganised, last-minute plans.</p>
+    </section>
+
+    <!-- 03 BEHAVIOR -->
+    <section class="section" id="behavior">
+      <div class="eyebrow">1.3</div>
+      <h2 class="stitle">How Personality Shows Up in <em>Behaviour</em></h2>
+      <h4 class="sub-sub">When is a trait activated?</h4>
+      <p>Specific situations allow expression or suppression of traits — e.g. a library, college, a satsang, or an emergency each pull different traits forward.</p>
+      <h4 class="sub-sub">Consistency of personality traits — a long-debated topic</h4>
+      <p>Tested via honesty in exams, paying taxes, relationships — traits are <strong>consistent enough to be labelled</strong> "someone's personality" (relatively consistent). What a person self-reports and what others observe tend to be more or less similar.</p>
+      <h4 class="sub-sub">Personality as a lens</h4>
+      <p style="max-width:680px;">Personality actively shapes how you filter and react to the world — driving your <strong>view of self, others and the world</strong>, your <strong>reactions to situations</strong>, your <strong>interactions</strong>, your <strong>feelings</strong>, and ultimately your <strong>selection of friends, partner and career</strong>, and how you shape your life through your actions.</p>
+    </section>
+
+    <!-- 04 LEVELS -->
+    <section class="section" id="levels">
+      <div class="eyebrow">1.4 · Kluckhohn &amp; Murray (1948)</div>
+      <h2 class="stitle">Levels of Personality <em>Analysis</em></h2>
+      <div class="grid grid-3">
+        <div class="card"><span class="k">LEVEL 1</span><h5>Human nature</h5><p>Universal — e.g. need to belong, capacity to love.</p></div>
+        <div class="card"><span class="k">LEVEL 2</span><h5>Individual &amp; group differences</h5><p>e.g. variation in need to belong across people/groups.</p></div>
+        <div class="card"><span class="k">LEVEL 3</span><h5>Individual uniqueness</h5><p>e.g. Mary's unique way of expressing her need to belong and to love.</p></div>
+      </div>
+
+      <h3 class="sub">Nomothetic vs. Idiographic Approaches</h3>
+      <div class="table-scroll">
+      <table class="cmp-table">
+        <tr><th>Feature</th><th>Nomothetic</th><th>Idiographic</th></tr>
+        <tr><td><strong>Core goal</strong></td><td>Discover universal laws of behaviour</td><td>Understand the unique individual</td></tr>
+        <tr><td><strong>Data type</strong></td><td>Quantitative (numbers, scores, %)</td><td>Qualitative (words, narratives, life histories)</td></tr>
+        <tr><td><strong>Group size</strong></td><td>Large samples (hundreds/thousands)</td><td>Single individuals or very small groups</td></tr>
+        <tr><td><strong>Pros</strong></td><td>Highly scientific, allows prediction, generalisable</td><td>Rich, deep, highly nuanced understanding</td></tr>
+        <tr><td><strong>Cons</strong></td><td>Loses the "human element"; oversimplifies</td><td>Time-consuming; can't easily generalise</td></tr>
+        <tr><td><strong>Example</strong></td><td>Statistical comparisons across groups/samples</td><td>Freud's psychobiography of Leonardo da Vinci; Rosenzweig's life-event analyses</td></tr>
+      </table>
+      </div>
+    </section>
+
+    <!-- 05 RESEARCH TRENDS -->
+    <section class="section" id="research-trends">
+      <div class="eyebrow">1.5</div>
+      <h2 class="stitle">Current Research <em>Trends</em></h2>
+      <p class="lede">Personality differences across cultures, ages, political ideologies, gender and socioeconomic groups are major areas of current interest.</p>
+
+      <h3 class="sub">Personality &amp; Social Media</h3>
+      <p>Core questions: is the personality you see online the same as real life? Does social media use shape personality, or just reveal it differently?</p>
+      <ul class="bullets">
+        <li>Online personalities are <strong>as accurate</strong> as face-to-face impressions (Gosling, Gaddis &amp; Vazire, 2007; Back et al., 2010).</li>
+        <li>People present as <strong>more emotionally stable online</strong> than they are in reality (Blumer &amp; Döring, 2012).</li>
+        <li><strong>Introverted, neurotic, lonely and socially awkward</strong> individuals find it easier to express their true selves online (Marriott &amp; Buchanan, 2014).</li>
+        <li>High social media/internet use is linked to <strong>increased neurotic tendencies</strong>, lower psychological well-being and lower self-esteem (Seidman, 2014; Kross et al., 2013).</li>
+        <li>Neurotic individuals passively use social media, engage in social comparison and heightened FOMO, using it to cope with distress — which disrupts wellbeing further (Rozgonjuk et al., 2019).</li>
+        <li>Heavy social-network users skew more extraverted, more open, but lower in self-esteem, socialisation skills, conscientiousness and emotional stability.</li>
+      </ul>
+
+      <h3 class="sub">Gender Differences in Personality</h3>
+      <ul class="bullets">
+        <li><strong>Neuroticism:</strong> emotional complexity, anxiety, agreeableness greater in women; anger/hostility greater in men.</li>
+        <li><strong>Extraversion:</strong> women score higher on warmth, gregariousness, positive emotions; men score higher on assertiveness and excitement seeking (Feingold, 1994; Costa et al., 2001).</li>
+        <li><strong>Openness:</strong> women score higher on aesthetics/feelings facets; men score higher on the ideas facet.</li>
+        <li>The "why" is unclear — possible reasons: <strong>evolution, social roles, cultural norms</strong>.</li>
+      </ul>
+
+      <h3 class="sub">Culture &amp; Personality</h3>
+      <ul class="bullets">
+        <li>Cultural environments shape/reinforce traits through socialisation — but the <strong>reverse causation hypothesis</strong> holds too: shared personality dispositions can shape the culture people build (systematic, bidirectional interaction).</li>
+        <li><strong>Parenting:</strong> individualistic US culture → noncoercive, democratic, permissive parenting; collectivist Asian/Arab cultures → more authoritarian, restrictive, controlling — shaping different personality outcomes.</li>
+        <li>High Individualism cultures → higher Extraversion &amp; Openness; high Power Distance → lower Agreeableness.</li>
+        <li>High Uncertainty Avoidance → higher Conscientiousness, lower Openness. Agricultural societies → higher Conscientiousness/Agreeableness. Urbanised cultures → higher Openness/Extraversion.</li>
+      </ul>
+    </section>
+
+    <!-- 06 HOFSTEDE -->
+    <section class="section" id="hofstede">
+      <div class="eyebrow">Framework · Geert Hofstede</div>
+      <h2 class="stitle">Hofstede's Cultural <em>Dimensions</em></h2>
+      <p class="lede">A framework explaining how a society's culture shapes the values and behaviour of its members — 6 key dimensions.</p>
+      <div class="grid grid-2">
+        <div class="card"><span class="k">POWER DISTANCE (PDI)</span><h5>Hierarchy acceptance</h5><p>High PDI: strict hierarchies, rarely questioned (Malaysia, Mexico). Low PDI: flat structures, open challenge to authority (Denmark, Israel).</p></div>
+        <div class="card"><span class="k">INDIVIDUALISM vs COLLECTIVISM (IDV)</span><h5>"I" vs "We"</h5><p>High IDV: merit-based, personal goals (US, Australia). Low IDV/Collectivist: in-group loyalty, "losing face" matters (Guatemala, South Korea).</p></div>
+        <div class="card"><span class="k">MASCULINITY vs FEMININITY (MAS)</span><h5>Competition vs quality of life</h5><p>High MAS: competition, achievement, long hours (Japan, Slovakia). High Femininity: work-life balance, modesty (Sweden, Norway).</p></div>
+        <div class="card"><span class="k">UNCERTAINTY AVOIDANCE (UAI)</span><h5>Comfort with ambiguity</h5><p>High UAI: rigid rules, detailed contracts (Greece, Japan). Low UAI: comfortable with ambiguity, "failing fast" (Singapore, UK).</p></div>
+        <div class="card"><span class="k">LONG- vs SHORT-TERM ORIENTATION (LTO)</span><h5>Future planning vs immediate results</h5><p>High LTO: long-range R&amp;D, high savings (China, South Korea). Low LTO: quarterly results focus (Nigeria, US).</p></div>
+        <div class="card"><span class="k">INDULGENCE vs RESTRAINT (IND)</span><h5>Gratification vs discipline</h5><p>High Indulgence: leisure, festivals prioritised (Mexico, Colombia). High Restraint: disciplined emotional expression (Egypt, Russia).</p></div>
+      </div>
+      <p style="max-width:680px;"><strong>Workplace takeaway:</strong> cultural sensitivity in recruitment and communication promotes DEI; training programmes help build interpersonal skills for multicultural teams and manage acculturation.</p>
+    </section>
+
+    <!-- 07 BIOLOGICAL -->
+    <section class="section" id="biological">
+      <div class="eyebrow">1.6</div>
+      <h2 class="stitle">Biological Influences on <em>Personality</em></h2>
+      <h3 class="sub">Genes &amp; Personality</h3>
+      <ul class="bullets">
+        <li><strong>The controversy:</strong> behavioural genetics debates genes vs. environment. In 1996, a gene was linked to "novelty seeking" behaviour tied to extraversion/sensation seeking — raising questions about "designer babies" and eugenics (improving the species by selective reproduction).</li>
+        <li><strong>Ethical/ideological risk:</strong> ignoring environment's role, misuse for political purposes (e.g. "master race" ideology).</li>
+        <li><strong>Finding the golden spot:</strong> knowledge beats ignorance for parenting practices — a partly genetic trait can still be managed or changed.</li>
+      </ul>
+      <h4 class="sub-sub">Key findings</h4>
+      <ul class="bullets">
+        <li><strong>Sensation/Novelty seeking:</strong> the 1996 study linked the dopamine receptor gene <strong>DRD4</strong> to thrill-seeking.</li>
+        <li><strong>Extraversion &amp; Neuroticism:</strong> twin studies show ~40–60% heritability.</li>
+        <li><strong>Aggression &amp; psychopathy:</strong> fearlessness, manipulation, low empathy show moderate heritability — environment shapes whether it leads to crime or acceptable outlets (e.g. high-stakes business).</li>
+        <li><strong>Propensity to marry:</strong> surprisingly heritable (~68%) — likely linked to sociability/agreeableness.</li>
+        <li><strong>Substance abuse:</strong> alcohol dependence is more heritable than casual drinking.</li>
+      </ul>
+      <h4 class="sub-sub">Shared vs. non-shared environment</h4>
+      <p style="max-width:680px;">Shared environments (family, school, household rules) have surprisingly little impact on most traits — adopted siblings raised together are barely similar in personality. Bigger effects come from <strong>nonshared environments</strong> — unique friends, teachers, experiences. Exceptions: attitudes, political/religious beliefs, health habits (smoking) and antisocial behaviour/depression — where shared environment does matter.</p>
+
+      <h3 class="sub">Physiological Basis of Personality</h3>
+      <ul class="bullets">
+        <li>Old physiological classifications (Ayurveda, Hippocrates — dominant bodily fluids) are now outdated; modern neuroscience uses <strong>fMRI</strong>.</li>
+        <li>Canli et al. (2001): high-neuroticism scorers showed more frontal-brain activity to negative images; high-extraversion scorers showed more activity to positive images.</li>
+        <li><strong>Testosterone</strong> ↑ uninhibited/aggressive/risk-taking behaviour. Shy children show higher <strong>cortisol</strong> (more stress). <strong>MAO</strong> helps regulate neurotransmitters, influencing thrill-seeking.</li>
+        <li><strong>Introverts vs. extraverts (Eysenck/Gale, 1987):</strong> introverts show stronger, quicker nervous-system responses to moderate stimulation (more physiologically reactive); in low-stimulation settings introverts stay more alert, extraverts get bored; in high-stimulation settings extraverts perform better as introverts become overaroused.</li>
+      </ul>
+    </section>
+
+    <!-- 08 EVOLUTIONARY -->
+    <section class="section" id="evolutionary">
+      <div class="eyebrow">1.7</div>
+      <h2 class="stitle">Evolutionary Influences on <em>Personality</em></h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <span class="k">HOGAN'S THEORY (1983)</span>
+          <h5>Status &amp; acceptance</h5>
+          <p>The two most basic human motivators: gaining status and achieving group acceptance. Early humans had to build cooperative relationships and navigate hierarchies — status/popularity meant protection, food, mates; exclusion was harmful to survival.</p>
+        </div>
+        <div class="card">
+          <span class="k">BAUMEISTER &amp; TICE (1990)</span>
+          <h5>Social anxiety</h5>
+          <p>Evolved as an adaptation to prevent exclusion. Without social anxiety, people risk exclusion, lost protection, fewer mates and lower reproductive success.</p>
+        </div>
+        <div class="card">
+          <span class="k">BAUMEISTER &amp; LEARY (1995)</span>
+          <h5>Need to belong</h5>
+          <p>A central human motivation — groups provide food, protection, mates, and kin support. Social pain activates the same brain regions as physical pain (anterior cingulate cortex) — MacDonald &amp; Leary (2005).</p>
+        </div>
+        <div class="card">
+          <span class="k">PARENTAL INVESTMENT THEORY (TRIVERS, 1972)</span>
+          <h5>Sex differences</h5>
+          <p>Females invest more in offspring (pregnancy, lactation); males compete more intensely for high-investing females — driving male risk-taking, aggression, and male-on-male violence.</p>
+        </div>
+      </div>
+      <h4 class="sub-sub">Evolutionary jealousy asymmetry</h4>
+      <p style="max-width:680px;">Because fertilization is internal, men risk investing in offspring that aren't theirs (paternal uncertainty) — women never face this. Predicted responses: <strong>men are more upset by sexual infidelity</strong> (threatens paternity certainty); <strong>women are more upset by emotional infidelity</strong> (threatens resources/long-term support).</p>
+    </section>
+
+    <!-- 09 ENVIRONMENTAL -->
+    <section class="section" id="environmental">
+      <div class="eyebrow">1.8</div>
+      <h2 class="stitle">Environmental Factors of <em>Personality</em></h2>
+      <h4 class="sub-sub">Parenting styles</h4>
+      <div class="grid grid-2">
+        <div class="card"><h5>Authoritative</h5><p>Warm, structured — linked to high self-esteem, social competence, lower neuroticism.</p></div>
+        <div class="card"><h5>Authoritarian</h5><p>Strict, less warmth — elevated neuroticism, lower openness/extraversion/self-esteem (varies cross-culturally).</p></div>
+        <div class="card"><h5>Permissive / indulgent</h5><p>Mixed outcomes — less consistent than authoritative; sometimes positive in European/Latin populations.</p></div>
+        <div class="card"><h5>Uninvolved / neglectful</h5><p>Nearly universally linked to low conscientiousness/agreeableness, high neuroticism, poorer social adjustment.</p></div>
+      </div>
+      <h4 class="sub-sub">Other environmental factors</h4>
+      <ul class="bullets">
+        <li><strong>Family environment:</strong> high conflict/low cohesion → anxiety, depression, reduced resilience; nurturing environments → secure attachment, emotional regulation.</li>
+        <li><strong>Neighbourhood:</strong> safety, cohesion, resources shape risk exposure and stress coping.</li>
+        <li><strong>Critical life events:</strong> moderate stress/trauma can spark post-traumatic <strong>growth</strong> — improved resilience, confidence, mastery — especially with positive meaning-making.</li>
+        <li><strong>Schools:</strong> socialisation, identity formation; peer/teacher feedback shapes self-esteem, conscientiousness, social competence.</li>
+        <li><strong>Peer groups:</strong> shape norms, identity exploration, risk-taking, prosocial engagement.</li>
+        <li><strong>Media:</strong> cultivates self-image and social comparison; influencer culture can lower self-esteem via upward comparison.</li>
+      </ul>
+    </section>
+
+    <!-- 10 THEORY BASICS -->
+    <section class="section" id="theory-basics">
+      <div class="eyebrow">1.9</div>
+      <h2 class="stitle">What Makes a Good <em>Theory</em>?</h2>
+      <p class="lede">A theory is a systematic set of ideas explaining, predicting and helping us understand a phenomenon based on evidence. It cannot be "right or wrong" — only more or less aligned with scientific observation. Functions: describe, explain, predict, control.</p>
+      <h4 class="sub-sub">Components of personality theories</h4>
+      <ul class="bullets">
+        <li><strong>Structure</strong> — what personality is made of.</li>
+        <li><strong>Motivation</strong> — why people behave as they do.</li>
+        <li><strong>Development</strong> — how personality develops across life.</li>
+        <li><strong>Assessment</strong> — how personality is measured.</li>
+        <li><strong>Psychopathology</strong> — how the theory explains abnormal behaviour.</li>
+        <li><strong>Personality change</strong> — how personality can change.</li>
+      </ul>
+      <h4 class="sub-sub">Criteria for evaluating a theory</h4>
+      <div class="table-scroll">
+      <table class="cmp-table">
+        <tr><th>Criterion</th><th>Meaning</th><th>Example</th></tr>
+        <tr><td><strong>Comprehensiveness</strong></td><td>Explains many aspects of personality</td><td>Freud explains development, motivation, disorders</td></tr>
+        <tr><td><strong>Parsimony</strong></td><td>Simple, economical explanation</td><td>Trait theory uses a small number of traits</td></tr>
+        <tr><td><strong>Testability</strong></td><td>Can be scientifically tested</td><td>Conscientiousness predicting academic success</td></tr>
+        <tr><td><strong>Empirical validity</strong></td><td>Supported by research</td><td>Big Five has extensive evidence</td></tr>
+        <tr><td><strong>Predictive power</strong></td><td>Predicts future behaviour</td><td>Conscientious people tend to be organized</td></tr>
+        <tr><td><strong>Practical application</strong></td><td>Useful in real-life settings</td><td>Rogers' theory used in counselling</td></tr>
+        <tr><td><strong>Internal consistency</strong></td><td>Concepts fit together logically</td><td>Freud's personality structure is internally coherent</td></tr>
+        <tr><td><strong>Stimulates research</strong></td><td>Encourages further investigation</td><td>Bandura's theory led to extensive research</td></tr>
+        <tr><td><strong>Organizing knowledge</strong></td><td>Integrates information systematically</td><td>Trait theories classify personality dimensions</td></tr>
+        <tr><td><strong>Cultural relevance</strong></td><td>Applicable across cultures / acknowledges cultural influence</td><td>Big Five has cross-cultural evidence</td></tr>
+      </table>
+      </div>
+    </section>
+
+    <!-- 11 ASSUMPTIONS -->
+    <section class="section" id="assumptions">
+      <div class="eyebrow">1.10</div>
+      <h2 class="stitle">Basic Assumptions About <em>Human Nature</em></h2>
+      <p class="lede">Every personality theory rests on assumptions about human beings — 8 key dichotomies.</p>
+
+      <div class="dichotomy"><div class="dtitle">Free Will vs. Determinism</div><div class="drow">
+        <div class="dside"><b>Free will</b>Behaviour is based on personal choice. Eg: a student chooses to study daily despite distractions. Supported by Rogers, Maslow.</div>
+        <div class="dside right"><b>Determinism</b>Behaviour is shaped by biology, environment, childhood experiences or unconscious motives. Eg: anxiety from traumatic childhood. Supported by Freud, Skinner.</div>
+      </div></div>
+
+      <div class="dichotomy"><div class="dtitle">Nature vs. Nurture</div><div class="drow">
+        <div class="dside"><b>Nature</b>Genetics — intelligence, temperament, emotional sensitivity. Eg: identical twins show similar traits.</div>
+        <div class="dside right"><b>Nurture</b>Environment — family, school, friends, culture. Eg: a supportive family builds confidence.</div>
+      </div></div>
+
+      <div class="dichotomy"><div class="dtitle">Stability vs. Change</div><div class="drow">
+        <div class="dside"><b>Stability</b>Personality stays relatively constant. Eg: a shy child stays shy as an adult. Trait theorists support this.</div>
+        <div class="dside right"><b>Change</b>Personality can shift through experience. Eg: a timid employee grows confident after leadership training. Humanistic/social learning theories support this.</div>
+      </div></div>
+
+      <div class="dichotomy"><div class="dtitle">Optimism vs. Pessimism</div><div class="drow">
+        <div class="dside"><b>Optimistic</b>Humans are naturally good, capable of growth. Eg: learning from failure builds resilience. Rogers, Maslow.</div>
+        <div class="dside right"><b>Pessimistic</b>Behaviour driven by inner conflict, aggression, selfish motives. Eg: kindness mainly to avoid guilt. Freud.</div>
+      </div></div>
+
+      <div class="dichotomy"><div class="dtitle">Conscious vs. Unconscious Behaviour</div><div class="drow">
+        <div class="dside"><b>Conscious</b>Aware of thoughts/feelings/actions. Eg: studying because you want to score well.</div>
+        <div class="dside right"><b>Unconscious</b>Behaviour driven by thoughts outside awareness. Eg: avoiding public speaking due to forgotten childhood embarrassment. Freud.</div>
+      </div></div>
+
+      <div class="dichotomy"><div class="dtitle">Rationality vs. Irrationality</div><div class="drow">
+        <div class="dside"><b>Rational</b>Logical, reasoned decisions. Eg: comparing job offers before accepting one.</div>
+        <div class="dside right"><b>Irrational</b>Emotions/impulses/unconscious motives drive behaviour. Eg: an impulsive expensive purchase despite financial difficulty.</div>
+      </div></div>
+
+      <div class="dichotomy"><div class="dtitle">Holism vs. Reductionism</div><div class="drow">
+        <div class="dside"><b>Holism</b>Understand the whole person — thoughts, emotions, behaviour, environment together. Humanistic psychology.</div>
+        <div class="dside right"><b>Reductionism</b>Understand via smaller components — genes, brain processes, learned behaviours. Eg: a behaviourist explains aggression as a learned, reinforced response.</div>
+      </div></div>
+
+      <div class="dichotomy"><div class="dtitle">Individuality vs. Universality</div><div class="drow">
+        <div class="dside"><b>Individuality</b>Every person's personality and experience is unique. Eg: siblings raised together develop different personalities.</div>
+        <div class="dside right"><b>Universality</b>Humans share common psychological characteristics. Eg: most people experience happiness, fear, sadness.</div>
+      </div></div>
+    </section>
+
+    <!-- PART 2 DIVIDER -->
+    <div class="part-divider">
+      <div class="ptag">Part 2</div>
+      <h2>Sigmund <em>Freud</em>: Classical Psychoanalysis</h2>
+      <p>The oldest, most foundational perspective in personality psychology — the psychodynamic approach.</p>
+    </div>
+
+    <!-- 12 FREUD LIFE -->
+    <section class="section" id="freud-life">
+      <div class="eyebrow">2.1</div>
+      <h2 class="stitle">Freud's Life &amp; the <em>Psychodynamic</em> Approach</h2>
+      <p class="lede">"Psychodynamic" refers to understanding behaviour through the role of unconscious thoughts, feelings and memories — the oldest perspective on personality, built on the work of Sigmund Freud (Psychodynamic/Psychoanalytic approach).</p>
+      <ul class="bullets">
+        <li>Freud was born in an Austrian town, now part of Czechoslovakia. He was a Jew and faced persecution as Hitler rose to power.</li>
+        <li><strong>Ernst Brucke:</strong> living organisms are dynamic systems obeying laws of the physical universe — an early influence on Freud.</li>
+        <li>Basically a physician, he worked extensively on <strong>"hysteria"</strong> — now known as conversion reactions.</li>
+        <li>Trained under <strong>Jean Charcot</strong> (treated hysteria via hypnotic suggestion) and <strong>Josef Breuer</strong> (success with hysterical patients by encouraging free talk about symptoms).</li>
+        <li>Ernest Jones wrote his biography, <i>The Life and Work of Sigmund Freud</i>.</li>
+        <li>Founded <strong>The Psychological Wednesday Society</strong>, later renamed the <strong>Vienna Psychoanalytic Society</strong>.</li>
+      </ul>
+      <h4 class="sub-sub">Freud's view of human nature</h4>
+      <div class="grid grid-2">
+        <div class="card"><h5>Animalistic &amp; primordial</h5><p>Selfish motives; sexual and aggressive desires drive behaviour.</p></div>
+        <div class="card"><h5>Role of the unconscious</h5><p>Most of what drives us lies outside conscious awareness.</p></div>
+      </div>
+      <h4 class="sub-sub">Key points of focus in the psychoanalytic approach</h4>
+      <p style="max-width:680px;">Unconscious mind → Repression of true feelings → Awareness of true feelings.</p>
+    </section>
+
+    <!-- 13 MIND -->
+    <section class="section" id="mind">
+      <div class="eyebrow">2.2 · Topographical Model</div>
+      <h2 class="stitle">Freud's Concept of <em>Mind</em></h2>
+      <p class="lede">Also called the <strong>Levels of Consciousness</strong> model — pictured as an iceberg.</p>
+
+      <div class="iceberg">
+        <div class="iceberg-band sky">Conscious mind<span class="pct">10% — visible above water</span></div>
+        <div class="iceberg-band water1">Preconscious mind</div>
+        <div class="iceberg-band water2">Unconscious mind<span class="pct">90% — hidden beneath</span></div>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <span class="k">CONSCIOUS MIND</span>
+          <h5>Currently aware of</h5>
+          <p>Things you're aware of right now. Eg: what is happening around you at present.</p>
+        </div>
+        <div class="card">
+          <span class="k">PRECONSCIOUS MIND</span>
+          <h5>Available memory</h5>
+          <p>Things you can recollect with some effort. Eg: what you ate for yesterday's lunch; how you celebrated your birthday last year.</p>
+        </div>
+        <div class="card">
+          <span class="k">UNCONSCIOUS MIND</span>
+          <h5>Suppressed &amp; forgotten</h5>
+          <p>Things you've suppressed and don't want to remember — forgotten due to painful emotions attached. Eg: painful childhood memories.</p>
+        </div>
+      </div>
+      <p style="max-width:680px;">Contents of the unconscious include: present thoughts, perceptions (near-conscious), and — deeper down — aggressive wishes, sexual instincts, selfish desires, shameful experiences, fears, painful memories, painful childhood memories, unacceptable wishes.</p>
+    </section>
+
+    <!-- 14 STRUCTURAL MODEL -->
+    <section class="section" id="structure">
+      <div class="eyebrow">2.3 · The Anatomy of Personality</div>
+      <h2 class="stitle">The <em>Structural</em> Model</h2>
+      <p class="lede">The tripartite division of personality: Id, Ego and Superego.</p>
+
+      <div class="psyche-row">
+        <div class="psyche-card id">
+          <h5>ID</h5>
+          <div class="principle">Pleasure Principle</div>
+          <p>"The id is a kid." Instinctive, oldest structure of mind — raw, animalistic, chaotic. Immediate discharge of psychic energy from biologically-rooted drives; if unexpressed, creates tension. Impulsive, irrational, narcissistic — doesn't recognise fear/anxiety or consequences.</p>
+        </div>
+        <div class="psyche-card ego">
+          <h5>EGO</h5>
+          <div class="principle">Reality Principle</div>
+          <p>Decision-making component; ensures safety and self-preservation. Battles for survival against both the external world and instinctual demands. Releases id's raw energy within social bounds. Rational, cognitive — the "executive of personality."</p>
+        </div>
+        <div class="psyche-card superego">
+          <h5>SUPEREGO</h5>
+          <div class="principle">Morality Principle</div>
+          <p>Acquired through socialisation — no one is born with it. Develops via parents, teachers and formative figures from ~3–5 years. Represents right-wrong, good-bad; fully developed once self-control replaces parental control. Guides toward perfectionistic goals.</p>
+        </div>
+      </div>
+
+      <h4 class="sub-sub">Cathexis &amp; Anti-cathexis — distribution of psychic energy</h4>
+      <ul class="bullets">
+        <li><strong>Cathexis:</strong> investment of energy to fulfil an instinct — can be shifted via <strong>displacement</strong>.</li>
+        <li><strong>Id:</strong> identification (modelling oneself after others), ego-cathexis (investing in a realistic goal), wishful thinking (fantasising), anti-cathexis (suppressing).</li>
+        <li><strong>Ego:</strong> conscience uses anti-cathexis against ego and id, follows the moral principle, and tries to suspend both pleasure and reality principles to do what's right.</li>
+        <li><strong>Anti-cathexis:</strong> preventing gratification of an instinct.</li>
+      </ul>
+    </section>
+
+    <!-- 15 INSTINCTS -->
+    <section class="section" id="instincts">
+      <div class="eyebrow">2.4</div>
+      <h2 class="stitle">Instincts: <em>Eros &amp; Thanatos</em></h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <span class="k">EROS — LIFE INSTINCT</span>
+          <h5>Survival &amp; pleasure</h5>
+          <p>Basic survival, pleasure, reproduction — essential for sustaining the individual and the species. Associated with love, cooperation, prosocial actions. Its energy is called <strong>libido / libidinal energy</strong>. Governed by erogenous zones.</p>
+        </div>
+        <div class="card">
+          <span class="k">THANATOS — DEATH INSTINCT</span>
+          <h5>"The goal of all life is death"</h5>
+          <p>An unconscious desire to die, tempered by life instincts. People who experience trauma often reenact it — an instinctive "pressure toward death." Linked to fear, hate, anger and anti-social acts (bullying to murder).</p>
+        </div>
+      </div>
+      <p style="max-width:680px;">Both instincts operate under the <strong>Law of Conservation of Energy</strong>.</p>
+      <h4 class="sub-sub">The four features of any instinct</h4>
+      <div class="grid grid-2">
+        <div class="card"><h5>1. Source</h5><p>The bodily condition or need from which it arises.</p></div>
+        <div class="card"><h5>2. Aim</h5><p>To abolish the excitation from that need — achieving it gives a momentary blissful state.</p></div>
+        <div class="card"><h5>3. Object</h5><p>A person/thing providing satisfaction — the choice of objects is flexible and changes across life.</p></div>
+        <div class="card"><h5>4. Impetus</h5><p>The magnitude of energy used to satisfy the instinct.</p></div>
+      </div>
+    </section>
+
+    <!-- 16 ANXIETY -->
+    <section class="section" id="anxiety">
+      <div class="eyebrow">2.5</div>
+      <h2 class="stitle"><em>Anxiety</em></h2>
+      <p class="lede">A consequence of inadequate discharge of libido.</p>
+      <div class="grid grid-3">
+        <div class="card">
+          <span class="k">NEUROTIC ANXIETY</span>
+          <p>Threat that unacceptable id impulses will become conscious; fear of severe consequences from doing something terrible; occurs when id impulses threaten to break through ego controls.</p>
+        </div>
+        <div class="card">
+          <span class="k">MORAL ANXIETY</span>
+          <p>Ego threatened by punishment from superego — shame, guilt, self-condemnation over expressing id. Objective fear of parental punishment; fear of exclusion, death, afterlife punishment.</p>
+        </div>
+        <div class="card">
+          <span class="k">REALISTIC ANXIETY</span>
+          <p>Emotional response to real, perceived external dangers. Terminates as the threat subsides — self-preservation; helps cope with danger.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 17 DEFENSE MECHANISMS -->
+    <section class="section" id="defense">
+      <div class="eyebrow">2.6</div>
+      <h2 class="stitle">Ego Defense <em>Mechanisms</em></h2>
+      <p class="lede">A way of reducing anxiety by blocking or distorting reality — a mental strategy against open id expression and opposing superego pressures. They operate <strong>unconsciously</strong>, are self-deceptive, and either block or distort the impulse to reduce its intensity.</p>
+      <div class="defense-card"><h5>Denial</h5><p>Blocking external events from awareness — refusing to experience overwhelming situations despite evidence. Most typical of young children/immature adults.</p></div>
+      <div class="defense-card"><h5>Repression</h5><p>Excluding distressing thoughts/feelings from consciousness. Remains active in the unconscious, requiring constant psychic energy to suppress. Shows up in dreams, jokes, slips of the tongue.</p></div>
+      <div class="defense-card"><h5>Projection</h5><p>Attributing unacceptable internal thoughts/feelings/behaviours to others or the environment — blaming someone/something for your own shortcomings.</p></div>
+      <div class="defense-card"><h5>Displacement</h5><p>Redirecting impulses from a more threatening object/person to something less threatening.</p></div>
+      <div class="defense-card"><h5>Rationalization</h5><p>Fallacious reasoning that turns irrational behaviour into seemingly rational behaviour — the "sour grapes" pattern.</p></div>
+      <div class="defense-card"><h5>Reaction Formation</h5><p>Expressing the opposite of the original (repressed) thought. First: an unwanted impulse is repressed into the unconscious. Second: its exact opposite is expressed consciously.</p></div>
+      <div class="defense-card"><h5>Sublimation</h5><p>A healthy, constructive, socially-acceptable strategy for channelling objectionable impulses (e.g. into art).</p></div>
+    </section>
+
+    <!-- 18 PSYCHOSEXUAL -->
+    <section class="section" id="psychosexual">
+      <div class="eyebrow">2.7 · Personality Development</div>
+      <h2 class="stitle">The Psychosexual <em>Stages</em></h2>
+      <div class="timeline">
+        <div class="t-item">
+          <div class="t-year">0–18 months</div>
+          <div class="t-title">Oral Stage</div>
+          <div class="t-desc">Mouth: sucking, chewing, biting — first zone of tension-reducing pleasure. Weaning &amp; separation from mother. Libido attaches to the oral zone (nail-biting, smoking, overeating). Difficulty giving up the breast → more libido stuck here, less for later stages. <strong>Frustration/overindulgence:</strong> Oral passive (cheerful, optimistic, gullible, dependent) vs. Oral aggressive (argumentative, sarcastic, exploitative, dominating).</div>
+        </div>
+        <div class="t-item">
+          <div class="t-year">18 months – 3 yrs</div>
+          <div class="t-title">Anal Stage</div>
+          <div class="t-desc">Anus: retaining/expelling faeces, toilet training. First exposure to id-superego conflict — the child learns their body is a "weapon" against parents. <strong>Anal expulsive/aggressive:</strong> disorderly, hostile, impulsive, destructive. <strong>Anal retentive:</strong> ordered, obstinate, stingy, rigid, compulsively neat. Later self-control and mastery originate here.</div>
+        </div>
+        <div class="t-item">
+          <div class="t-year">3–6 yrs</div>
+          <div class="t-title">Phallic Stage</div>
+          <div class="t-desc">Genitals are the focus of libido. Task: identifying with the same-sex role model. Children explore/manipulate genitals, become curious about anatomical differences, may express wanting to marry the opposite-sex parent. The most complex conflicts to resolve — involve the incest taboo. <strong>Boys:</strong> Oedipus complex. <strong>Girls:</strong> Electra complex. <strong>Phallic personality:</strong> strong narcissism, needs continual admiration; can show impotency, frigidity, infidelity.</div>
+        </div>
+        <div class="t-item">
+          <div class="t-year">6–12 yrs</div>
+          <div class="t-title">Latency Stage</div>
+          <div class="t-desc">By age 5, id/ego/superego structures are formed and solidifying. <strong>Not technically a psychosexual stage</strong> — the sex instinct is dormant, temporarily sublimated into school activities, hobbies, sports, and same-sex friendships.</div>
+        </div>
+        <div class="t-item">
+          <div class="t-year">Puberty onward</div>
+          <div class="t-title">Genital Stage</div>
+          <div class="t-desc">The final stage — body becomes physiologically mature. If no major earlier fixations, the individual can lead a normal life; Freud believed conflict here is less intense. Sexual energy is satisfied through socially acceptable substitutes and, later, committed adult relationships. Satisfaction is found in <strong>love and work</strong> — work being an acceptable sublimation outlet.</div>
+        </div>
+      </div>
+
+      <h4 class="sub-sub">Oedipus Complex (boys)</h4>
+      <p style="max-width:680px;">Named after Sophocles' <i>Oedipus Rex</i>. Mother becomes the love object; father is seen as a rival, feared for his power — leading to <strong>castration anxiety</strong>. Resolved around 5–7 years: the boy represses desire for mother and identifies with father — this identification is the origin of the <strong>superego</strong>. Fixation → brash, boastful, reckless masculinity.</p>
+      <h4 class="sub-sub">Electra Complex (girls)</h4>
+      <p style="max-width:680px;">From Sophocles' Electra, who had her brother kill their mother. The girl realises she lacks a penis (<strong>penis envy</strong>), blames the mother, feels hostility, wishes for the father's protection, and later identifies with the mother, wishing to marry someone like her father. Fixation → exaggerated femininity used to overwhelm/conquer men.</p>
+    </section>
+
+    <!-- 19 DREAMS -->
+    <section class="section" id="dreams">
+      <div class="eyebrow">2.8 · Application</div>
+      <h2 class="stitle">Dream <em>Interpretation</em></h2>
+      <p class="lede">Application areas of psychoanalytic theory: psychoanalytic therapy, base of psychodynamic therapies, projective assessment techniques, and dream interpretation.</p>
+      <ul class="bullets">
+        <li><strong>Manifest content:</strong> the actual symbol/imagery in the dream. <strong>Latent content:</strong> its underlying psychological meaning.</li>
+        <li>Dreams reveal conflicts in condensed, intensified form — any dream event can have many sources; some origins are simply mundane.</li>
+        <li>A Hong Kong study found people who slept prone (on stomach) more often dreamed of sexual activity, being smothered, locked up, tied, unable to move (Yu, 2012).</li>
+        <li>A large German study found the five most typical dreams involve: flying, trying something repeatedly, being chased, sexual experiences, and school-related matters (Göritz, 2014).</li>
+      </ul>
+      <h4 class="sub-sub">Classic dream symbols &amp; latent psychoanalytic meaning</h4>
+      <div class="table-scroll">
+      <table class="cmp-table">
+        <tr><th>Symbol</th><th>Interpretation</th></tr>
+        <tr><td>Smooth-fronted house</td><td>Male body</td></tr>
+        <tr><td>House with ledges/balconies</td><td>Female body</td></tr>
+        <tr><td>King and queen</td><td>Parents</td></tr>
+        <tr><td>Small animals / children</td><td>Children / genital organs</td></tr>
+        <tr><td>Playing with children</td><td>Masturbation</td></tr>
+        <tr><td>Baldness, tooth extraction</td><td>Castration</td></tr>
+        <tr><td>Elongated objects (trunks, umbrellas, snakes, candles)</td><td>Male genitals</td></tr>
+        <tr><td>Enclosed spaces (boxes, ovens, closets, caves)</td><td>Female genitals</td></tr>
+        <tr><td>Climbing stairs/ladders, driving, riding, crossing bridges</td><td>Sexual intercourse</td></tr>
+        <tr><td>Bathing / beginning a journey</td><td>Birth / dying</td></tr>
+        <tr><td>Being naked in a crowd</td><td>Desiring to be noticed/admired</td></tr>
+        <tr><td>Flying / Falling</td><td>Desiring admiration / desiring to return to a satisfied, protected state (e.g. childhood)</td></tr>
+      </table>
+      </div>
+      <h4 class="sub-sub">A modern perspective on common dream themes</h4>
+      <ul class="bullets">
+        <li><strong>Falling:</strong> loss of control, insecurity, fear of failure — anxieties about power, sex or instability.</li>
+        <li><strong>Flying:</strong> freedom, escape, ambition — possibly sexual release or overcoming limitations.</li>
+        <li><strong>Being chased:</strong> avoidance of an issue/confrontation — repressed fears or guilt.</li>
+        <li><strong>Teeth falling out:</strong> anxiety about appearance/communication/loss — castration anxiety or fear of aging.</li>
+        <li><strong>Water:</strong> emotions and the subconscious — sexuality or emotional states.</li>
+        <li><strong>Nudity in public:</strong> vulnerability, shame, fear of exposure — hidden insecurities or repression.</li>
+        <li><strong>Sexual dreams:</strong> desire, intimacy, unresolved sexual tension.</li>
+        <li><strong>Death:</strong> change, transformation, fear of loss — suppressed aggression or wish for independence.</li>
+        <li><strong>Being trapped:</strong> feeling stuck in a situation/relationship — repression of desires.</li>
+      </ul>
+    </section>
+
+    <!-- 20 EVALUATION -->
+    <section class="section" id="evaluation">
+      <div class="eyebrow">2.9</div>
+      <h2 class="stitle"><em>Evaluation</em> of the Theory</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <span class="k">STRENGTHS</span>
+          <p>First organized theory of personality; highly applicable; based on extensive clinical observation of neurotic patients plus self-analysis.</p>
+        </div>
+        <div class="card">
+          <span class="k">LIMITATIONS</span>
+          <p>Comparatively less empirical validity; needs refinement in the modern context; needs more sophisticated research methods for scientific rigor.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 21 GLOSSARY -->
+    <section class="section" id="glossary">
+      <div class="eyebrow">Quick Reference</div>
+      <h2 class="stitle">Glossary of Key <em>Terms</em></h2>
+      <dl class="glossary">
+        <div class="gterm"><dt>Temperament</dt><dd>Innate, biologically-based emotional/behavioural style present from infancy.</dd></div>
+        <div class="gterm"><dt>Big Five (OCEAN)</dt><dd>Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism — the standard trait framework.</dd></div>
+        <div class="gterm"><dt>Nomothetic Approach</dt><dd>Studies large samples to find universal laws of behaviour.</dd></div>
+        <div class="gterm"><dt>Idiographic Approach</dt><dd>Deep case-study exploration of one individual's unique experience.</dd></div>
+        <div class="gterm"><dt>Hofstede's Dimensions</dt><dd>6-part framework (Power Distance, Individualism, Masculinity, Uncertainty Avoidance, Long-Term Orientation, Indulgence) explaining cultural influence on values/behaviour.</dd></div>
+        <div class="gterm"><dt>DRD4 Gene</dt><dd>Dopamine receptor gene linked (1996) to novelty/sensation-seeking behaviour.</dd></div>
+        <div class="gterm"><dt>Parental Investment Theory</dt><dd>Trivers (1972) — the sex investing more in offspring (typically female) is choosier; the other competes more intensely.</dd></div>
+        <div class="gterm"><dt>Psychodynamic Approach</dt><dd>Understanding behaviour via unconscious thoughts, feelings and memories — Freud's foundational perspective.</dd></div>
+        <div class="gterm"><dt>Topographical Model</dt><dd>Freud's iceberg model: conscious (10%), preconscious, and unconscious (90%) mind.</dd></div>
+        <div class="gterm"><dt>Structural Model</dt><dd>Id (pleasure principle), Ego (reality principle), Superego (morality principle).</dd></div>
+        <div class="gterm"><dt>Libido</dt><dd>The energy created by the life instinct (Eros).</dd></div>
+        <div class="gterm"><dt>Cathexis / Anti-cathexis</dt><dd>Investing psychic energy to fulfil an instinct / preventing its gratification.</dd></div>
+        <div class="gterm"><dt>Castration Anxiety</dt><dd>A boy's fear, during the phallic stage, that his father will punish his attraction to his mother.</dd></div>
+        <div class="gterm"><dt>Penis Envy</dt><dd>In the Electra complex, a girl's realisation she lacks a penis, provoking hostility toward the mother.</dd></div>
+        <div class="gterm"><dt>Manifest vs. Latent Content</dt><dd>The actual dream imagery vs. its underlying, symbolic psychoanalytic meaning.</dd></div>
+      </dl>
+    </section>
+
+    <!-- 22 FLASHCARDS -->
+    <section class="section" id="flashcards">
+      <div class="eyebrow">Self-Test</div>
+      <h2 class="stitle">Flashcards — Tap to <em>Reveal</em></h2>
+      <p class="lede">Quick recall check across both parts. Click any card to flip.</p>
+      <div class="flash-grid" id="flashGrid"></div>
+    </section>
+
+    <!-- 23 REFERENCES -->
+    <section class="section" id="references" style="border-bottom:none;">
+      <div class="eyebrow">Cited Works</div>
+      <h2 class="stitle">References</h2>
+      <div class="ref-item"><b>Larsen, R. J., &amp; Buss, D. M.</b> (2005). <i>Personality Psychology: Domains of Knowledge About Human Nature.</i> McGraw-Hill.</div>
+      <div class="ref-item"><b>Schultz, D. P., &amp; Schultz, S. E.</b> (2009/2015). <i>Theories of Personality.</i> Wadsworth, Cengage Learning.</div>
+      <div class="ref-item"><b>Kluckhohn, C., &amp; Murray, H. A.</b> (1948). <i>Personality in Nature, Society, and Culture.</i> Knopf.</div>
+      <div class="ref-item"><b>Hofstede, G.</b> Cultural Dimensions Theory — Power Distance, Individualism vs. Collectivism, Masculinity vs. Femininity, Uncertainty Avoidance, Long-Term Orientation, Indulgence vs. Restraint.</div>
+      <div class="ref-item"><b>Hogan, R.</b> (1983). A socioanalytic theory of personality.</div>
+      <div class="ref-item"><b>Baumeister, R. F., &amp; Leary, M. R.</b> (1995). The need to belong: Desire for interpersonal attachments as a fundamental human motivation. <i>Psychological Bulletin.</i></div>
+      <div class="ref-item"><b>Trivers, R.</b> (1972). Parental investment and sexual selection.</div>
+      <div class="ref-item"><b>Boeree, C. G.</b> (1997). <i>Personality Theories.</i></div>
+      <div class="ref-item"><b>Burger, J.</b> (2011). <i>Personality.</i> Wadsworth, Cengage Learning.</div>
+      <div class="ref-item"><b>Hjelle, L. A., &amp; Ziegler, D. J.</b> (1992). <i>Personality Theories: Basic Assumptions, Research, and Applications.</i> McGraw-Hill.</div>
+      <div class="ref-item"><b>Hogan, R., Johnson, J., &amp; Briggs, S.</b> (Eds.). (1997). <i>Handbook of Personality Psychology.</i> Academic Press.</div>
+      <div class="ref-item"><b>Jones, E.</b> <i>The Life and Work of Sigmund Freud.</i></div>
+      <div class="ref-item"><b>Yu, C. K.-C.</b> (2012). Study on sleep position and dream content.</div>
+      <div class="ref-item"><b>Göritz, A. S.</b> (2014). Study on typical dream themes.</div>
+    </section>
+
+    <footer>PERSONALITY PSYCHOLOGY — UNIT 1 &amp; CLASSICAL PSYCHOANALYSIS · BUILT FROM YOUR NOTES &amp; SLIDES FOR EXAM REVISION</footer>
+  </main>
+</div>
+
+<script>
+  const sidebar = document.getElementById('sidebar');
+  const menuBtn = document.getElementById('menuBtn');
+  const overlay = document.getElementById('overlay');
+  menuBtn.addEventListener('click', () => { sidebar.classList.toggle('open'); overlay.classList.toggle('show'); });
+  overlay.addEventListener('click', () => { sidebar.classList.remove('open'); overlay.classList.remove('show'); });
+  document.querySelectorAll('.toc a').forEach(a => a.addEventListener('click', () => {
+    sidebar.classList.remove('open'); overlay.classList.remove('show');
+  }));
+
+  const sections = document.querySelectorAll('main .section, main .hero');
+  const links = document.querySelectorAll('.toc a');
+  const progressFill = document.getElementById('progressFill');
+  const progressPct = document.getElementById('progressPct');
+
+  function onScroll(){
+    let current = '';
+    sections.forEach(sec => {
+      const rect = sec.getBoundingClientRect();
+      if(rect.top <= 140) current = sec.id;
+    });
+    links.forEach(link => { link.classList.toggle('active', link.getAttribute('href') === '#' + current); });
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? Math.min(100, Math.round((scrollTop / docHeight) * 100)) : 0;
+    progressFill.style.width = pct + '%';
+    progressPct.textContent = pct + '%';
+  }
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+
+  const cards = [
+    {q:"What are the two most-cited definitions of personality?", a:"Larsen & Buss (2005): psychological traits/mechanisms influencing interactions with environments. Schultz & Schultz (2015): an enduring, unique cluster of characteristics that may change across situations."},
+    {q:"Explain the 'House Analogy' for temperament, trait, personality.", a:"Temperament = the foundation/soil. Traits = the pillars/walls. Personality = the complete furnished home built from both."},
+    {q:"Name the Big Five (OCEAN) traits.", a:"Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism."},
+    {q:"Difference between nomothetic and idiographic approaches?", a:"Nomothetic: universal laws, quantitative, large samples. Idiographic: unique individual, qualitative, single case studies (e.g. Freud's psychobiography of da Vinci)."},
+    {q:"What are Kluckhohn & Murray's 3 levels of personality analysis?", a:"1) Human nature (universal) 2) Individual & group differences 3) Individual uniqueness."},
+    {q:"Name 2 key findings on social media and personality.", a:"Online personalities are as accurate as face-to-face ones (Gosling et al.); heavy social media use is linked to increased neurotic tendencies and lower self-esteem (Seidman, 2014)."},
+    {q:"Name Hofstede's 6 cultural dimensions.", a:"Power Distance, Individualism vs Collectivism, Masculinity vs Femininity, Uncertainty Avoidance, Long-Term vs Short-Term Orientation, Indulgence vs Restraint."},
+    {q:"What gene was linked to novelty-seeking behaviour (1996)?", a:"The dopamine receptor gene DRD4."},
+    {q:"What's the difference between shared and nonshared environment effects?", a:"Shared environments (family, school) have little impact on most traits; nonshared environments (unique friends, experiences) have the biggest effect."},
+    {q:"What did Canli et al. (2001) find via fMRI?", a:"High-neuroticism scorers showed more frontal-brain activity to negative images; high-extraversion scorers showed more activity to positive images."},
+    {q:"State Hogan's (1983) theory of basic human motivators.", a:"Gaining status and achieving acceptance by the group."},
+    {q:"What is Parental Investment Theory (Trivers, 1972)?", a:"The sex that invests more in offspring (typically females) is more selective; the other sex competes more intensely for access to mates."},
+    {q:"Why are men more upset by sexual infidelity and women by emotional infidelity?", a:"Men face paternal uncertainty (risk of investing in offspring that aren't theirs); women risk losing resources/long-term support — different reproductive risks."},
+    {q:"Which parenting style is linked to high self-esteem and low neuroticism?", a:"Authoritative parenting (warm, structured)."},
+    {q:"List the 6 components of a personality theory.", a:"Structure, Motivation, Development, Assessment, Psychopathology, Personality Change."},
+    {q:"Name 3 criteria for evaluating a good theory.", a:"Any 3 of: Comprehensiveness, Parsimony, Testability, Empirical Validity, Predictive Power, Practical Application, Internal Consistency, Stimulates Research, Organizing Knowledge, Cultural Relevance."},
+    {q:"List the 8 basic assumptions about human nature.", a:"Free Will vs Determinism, Nature vs Nurture, Stability vs Change, Optimism vs Pessimism, Conscious vs Unconscious, Rationality vs Irrationality, Holism vs Reductionism, Individuality vs Universality."},
+    {q:"What does 'psychodynamic' mean?", a:"Understanding behaviour through the role of unconscious thoughts, feelings and memories — the oldest personality perspective, based on Freud's work."},
+    {q:"What percentage split does the topographical (iceberg) model propose?", a:"Conscious mind ~10%, Unconscious mind ~90%."},
+    {q:"Name Freud's 3 levels of consciousness.", a:"Conscious, Preconscious, Unconscious mind."},
+    {q:"State the Id, Ego and Superego's guiding principles.", a:"Id = Pleasure principle. Ego = Reality principle. Superego = Morality principle."},
+    {q:"What are Eros and Thanatos?", a:"Eros = life instinct (survival, pleasure, reproduction; energy = libido). Thanatos = death instinct ('the goal of all life is death')."},
+    {q:"List the 4 features of an instinct.", a:"Source, Aim, Object, Impetus."},
+    {q:"Name the 3 types of anxiety Freud proposed.", a:"Neurotic anxiety, Moral anxiety, Realistic anxiety."},
+    {q:"List all 7 ego defense mechanisms covered.", a:"Denial, Repression, Projection, Displacement, Rationalization, Reaction Formation, Sublimation."},
+    {q:"Name the 5 psychosexual stages in order.", a:"Oral (0–18mo) → Anal (18mo–3yr) → Phallic (3–6yr) → Latency (6–12yr) → Genital (puberty onward)."},
+    {q:"What is the Oedipus complex, and how is it resolved?", a:"A boy's attraction to his mother and rivalry/fear of his father (castration anxiety); resolved ~5–7 years via repression and identification with the father — origin of the superego."},
+    {q:"What is the Electra complex?", a:"A girl's realisation she lacks a penis (penis envy), hostility toward the mother, wish for the father, later identification with the mother."},
+    {q:"Why is Latency not considered a true psychosexual stage?", a:"The sex instinct is dormant/sublimated into school, hobbies and same-sex friendships rather than focused on an erogenous zone."},
+    {q:"What's the difference between manifest and latent dream content?", a:"Manifest = the actual symbol/imagery in the dream. Latent = its underlying psychoanalytic meaning."},
+    {q:"Name 2 strengths and 2 limitations of Freud's theory.", a:"Strengths: first organized theory of personality; based on extensive clinical observation. Limitations: less empirical validity; needs more rigorous modern research methods."}
+  ];
+
+  const grid = document.getElementById('flashGrid');
+  cards.forEach((c, i) => {
+    const div = document.createElement('div');
+    div.className = 'flash';
+    div.innerHTML = `<div class="hint">Q${i+1}</div><div class="q">${c.q}</div><div class="a">${c.a}</div>`;
+    div.addEventListener('click', () => div.classList.toggle('open'));
+    grid.appendChild(div);
+  });
+</script>
+
+</body>
+</html>
